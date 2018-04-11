@@ -23,7 +23,7 @@ if __name__=='__main__':
     sc.setCheckpointDir('checkpoint/')
     ALS.checkpointInterval = 2
     time1 = time.time()
-    model = ALS.train(ratings=rates_data, rank=30, iterations=20, lambda_=0.05)
+    model = ALS.train(ratings=rates_data, rank=15, iterations=20, lambda_=0.01)
     time2 = time.time()
     diff_time = time2 - time1
     print('Train model time:' + str(diff_time))
