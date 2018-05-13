@@ -6,7 +6,7 @@ import pandas as pd
 def id_to_num(num):
     '''read data'''
     colums = ['user_id', 'business_id', "stars"]
-    df = pd.read_csv('review.csv', usecols=colums)
+    df = pd.read_csv('review_old.csv', usecols=colums)
 
     user_id = df['user_id'].tolist()
     business_id = df['business_id'].tolist()

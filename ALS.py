@@ -13,7 +13,7 @@ if __name__=='__main__':
     sc = SparkContext("local", "Simple App")
     df = pd.read_csv("review_new.csv", header=None)
     # Split data set as train data and test data
-    train_data, test_data = cv.train_test_split(df, test_size=0.002)
+    train_data, test_data = cv.train_test_split(df, test_size=0.2)
     train_data.to_csv("train_data.csv", index=False, header=False)
     test_data.to_csv("test_data.csv", index=False, header=False)
 
@@ -52,27 +52,3 @@ if __name__=='__main__':
     print(rmse)
 
 
-""" 
-df=pd.read_csv("review_deleted.csv", header=0)
-df.to_csv("review_new.csv", index=False, header=False)
-user_id_predict_list = []
-business_id_predict_list = []
-user_id_predict_list.append(user_id)
-business_id_predict_list.append(business_id)
-print(user_id, business_id,model.predict(user_id,business_id))
-dataframe = pd.DataFrame({'user_index': user_id_predict_list, 'business_index':business_id_predict_list, 'stars': star})
-dataframe.to_csv('predict_result.csv', header=False, index=False, sep=',')
-star.append(model.predict(user_id,business_id))
-test_data.columns=['column']
-test_data.columns=['business_index','stars','user_index']
-print(model.recommendProductsForUsers(3).collect())
-"""
-"""
-f = open('review.csv', 'r')
-content = csv.reader(f)
-lineNum = 0
-for line in content:
-    lineNum += 1
-print(lineNum)  # lineNum就是你要的文件行数
-f.close()
-"""
